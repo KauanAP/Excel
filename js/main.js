@@ -89,14 +89,17 @@ function rodarInformaçõesBasicas() {
             if (l === 0) {
                 todosTh.push(document.createElement('th'))
                 todosTr[l].appendChild(todosTh[c])
+                todosTh[c].innerHTML = String.fromCharCode(64 + coluna)
             }
-            let identidade = String.fromCharCode(64 + coluna) + linha
-            todosTd[identidade] = document.createElement('td')
-            todosTr[l].appendChild(todosTd[identidade])
-            inputs[identidade] = document.createElement('input')
-            inputs[identidade].id = identidade
-            todosTd[identidade].appendChild(inputs[identidade])
-            console.log(identidade, inputs[identidade], inputs[identidade].id, todosTd[identidade])
+            else {
+                let identidade = String.fromCharCode(64 + coluna) + linha
+                todosTd[identidade] = document.createElement('td')
+                todosTr[l].appendChild(todosTd[identidade])
+                inputs[identidade] = document.createElement('input')
+                inputs[identidade].id = identidade
+                todosTd[identidade].appendChild(inputs[identidade])
+                console.log(identidade, inputs[identidade], inputs[identidade].id, todosTd[identidade])
+            }
         }
     }
     console.log[inputs.length, inputs]
