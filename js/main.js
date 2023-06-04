@@ -88,7 +88,7 @@ function rodarInformaçõesBasicas() {
             coluna = c + 1
             if (l === 0) {
                 todosTh.push(document.createElement('th'))
-                todosTr[l].appendChild(todosTr[c])
+                todosTr[l].appendChild(todosTh[c])
             }
             let identidade = String.fromCharCode(64 + coluna) + linha
             todosTd[identidade] = document.createElement('td')
