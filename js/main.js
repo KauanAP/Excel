@@ -260,3 +260,4 @@ async function apiExcel() {
     const returnApiExcel = await fetch('https://api-excel.kauanreinox.repl.co/')
     console.log(returnApiExcel)
 }
+apiExcel()
