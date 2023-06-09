@@ -118,7 +118,7 @@ function rodarInformaçõesBasicas() {
                 
             }
             if ((l > 0) & (c > 0 & c < 27)) {
-                debugger
+                //
                 let identidade = String.fromCharCode(64 + c) + l
                 todosTd[identidade] = document.createElement('td')
                 todosTr[l].appendChild(todosTd[identidade])
@@ -135,7 +135,7 @@ rodarInformaçõesBasicas()
 //
 //
 tabela.addEventListener('click',(event) => {
-    debugger
+    //
     console.log(Boolean(inputs[event.target.id]))
     if (Boolean(inputs[event.target.id]) == true) {
         console.log(Boolean(inputs[event.target.id]))
@@ -201,12 +201,12 @@ function selecionarColuna(clSelect, type) {
                 checkFinal = 'line'
             }
             if (checkFinal === 'column') {
-                debugger
+                //
                 retirarSelecao(clSelect)
                 //
             }
             if (controleExecucaoLine != clSelect & controleExecucaoLine != 'none') {
-                debugger
+                //
                 todosTh[controleExecucaoLine].style.background = 'rgb(235, 235, 235)'
                 inputs[String.fromCharCode(64 + (line + 1)) + controleExecucaoLine].style.background = 'rgb(255, 255, 255)'
                 todosTd[String.fromCharCode(64 + (line + 1)) + controleExecucaoLine].style.background = 'none'
