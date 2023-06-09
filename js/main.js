@@ -256,8 +256,7 @@ function retirarSelecao(type) {
     }
 }
 //
-fetch('https://api-excel.kauanreinox.repl.co/')
-    .then((res) => {
-        console.log('oioi funcionou', res)
-    })
-    .catch(error => console.log('oi deu erro', error))
+async function apiExcel() {
+    const returnApiExcel = await fetch('https://api-excel.kauanreinox.repl.co/')
+    console.log(returnApiExcel)
+}
