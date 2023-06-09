@@ -37,3 +37,46 @@ body {
 #conteudoPrincipal {
     width: auto;
 }
+
+#celulaName {
+    width: 300px;
+}
+
+input {
+    width: 100px;
+    margin: 0;
+    font-size: 16px;
+    border: none;
+}
+
+input:hover {
+    cursor: move;
+}
+
+input:focus {
+    outline: solid 2px rgb(23, 23, 148);
+}
+
+table {
+    border-collapse: collapse;
+    border: none;
+}
+
+th:first-child {
+    min-width: 50px;
+    border-bottom: solid 1px rgb(196, 196, 196);
+    background-color: rgb(235, 235, 235);
+}
+
+th {
+    border-left: solid 2px rgb(196, 196, 196);
+    border-right: solid 2px rgb(196, 196, 196);
+    background-color: rgb(235, 235, 235);
+}
+
+th:hover {
+    cursor: pointer;
+    border-left: solid 2px rgba(0, 100, 200, 0.3);
+    border-right: solid 2px rgba(0, 100, 200, 0.3);
+    background-color: rgba(0, 100, 200, 0.3);
+}
