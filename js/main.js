@@ -258,7 +258,7 @@ function retirarSelecao(type) {
 //
 async function apiExcel() {
     const returnApiExcel = await fetch('https://api-excel.kauanreinox.repl.co/')
-    console.log(returnApiExcel.json)
-    console.log('rodando lisin')
+    console.log(returnApiExcel.json())
+    console.log('rodando lisinho')
 }
 apiExcel()
