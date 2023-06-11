@@ -21,6 +21,10 @@ menuFuncionalidades.style.margin = '15px';
 menuFuncionalidades.style.borderRadius = '5px';
 //
 const conteudoPrincipal = document.getElementById("conteudoPrincipal");
+//const select = document.createElement('select')
+//const optionPadrao = document.createElement('option')
+//optionPadrao.setAttribute('value', '0')
+//optionPadrao.selected = true
 const nomeDasCelulas = document.createElement('input')
 nomeDasCelulas.id = 'celulaName'
 conteudoPrincipal.appendChild(nomeDasCelulas)
@@ -34,9 +38,9 @@ let todosTd = []
 conteudoPrincipal.appendChild(tabela)
 //
 //
-for (let i = 0; i < 13; i++) {
-    menuItens.push(menuSuperior.children[i]);
-    console.log(menuItens[i]);
+for (let a = 0; a < 13; a++) {
+    menuItens.push(menuSuperior.children[a]);
+    //console.log(menuItens[a]);
 }
 //
 //
@@ -74,7 +78,7 @@ function home() {
     }
     desfazer.src = 'img/desfazer.png';
     refazer.src = 'img/refazer.png'
-    console.log(desfazer);
+    //console.log(desfazer);
     menuFuncionalidades.appendChild(desfazer);
     menuFuncionalidades.appendChild(refazer);
     desfazer.style.width = '20px';
@@ -97,22 +101,22 @@ function rodarInformaçõesBasicas() {
                 todosTh[l].innerHTML = l
                 todosTh[l].class = 'linhasCelula'
                 todosTr[l].appendChild(todosTh[l])
-                console.log(todosTh[l].class)
+                //console.log(todosTh[l].class)
             }
             if (l === 0) {
                 if (c == 0) {
-                    console.log('marca tudo')
+                    //console.log('marca tudo')
                     let colunaName = String.fromCharCode(64 + c)
                     todosTh[colunaName] = document.createElement('th')
                     todosTh[colunaName].innerHTML = ''
-                    console.log(todosTh[colunaName])
+                    //console.log(todosTh[colunaName])
                     todosTr[l].appendChild(todosTh[colunaName])
                 }
                 else {
                     let colunaName = String.fromCharCode(64 + c)
                     todosTh[colunaName] = document.createElement('th')
                     todosTh[colunaName].innerHTML = String.fromCharCode(64 + c)
-                    console.log(todosTh[colunaName])
+                    //console.log(todosTh[colunaName])
                     todosTr[l].appendChild(todosTh[colunaName])
                 }
                 
@@ -128,7 +132,7 @@ function rodarInformaçõesBasicas() {
             }
         }
     }
-    console.log[inputs.length, inputs]
+    //console.log[inputs.length, inputs]
 }
 //
 rodarInformaçõesBasicas()
@@ -136,9 +140,9 @@ rodarInformaçõesBasicas()
 //
 tabela.addEventListener('click',(event) => {
     //
-    console.log(Boolean(inputs[event.target.id]))
+    //console.log(Boolean(inputs[event.target.id]))
     if (Boolean(inputs[event.target.id]) == true) {
-        console.log(Boolean(inputs[event.target.id]))
+        //console.log(Boolean(inputs[event.target.id]))
         retirarSelecao(checkFinal)
         nomeDasCelulas.value = event.target.id
     }
@@ -163,9 +167,15 @@ let controleExecucaoLine = 'none'
 let checkFinal = 'none'
 
 function selecionarColuna(clSelect, type) {
-    console.log(clSelect)
+    //console.log(clSelect)
     if (type == 'column') {
         for (let column = 0; column < 40; column++) {
+            if (controleExecucaoColumn != clSelect & controleExecucaoColumn != 'none') {
+                
+                todosTh[controleExecucaoColumn].style.background = 'rgb(235, 235, 235)'
+                inputs[controleExecucaoColumn + (column + 1)].style.background = 'rgb(255, 255, 255)'
+                todosTd[controleExecucaoColumn + (column + 1)].style.background = 'none'
+            }
             if (column == 39) {
                 controleExecucaoColumn = clSelect
                 checkFinal = 'column'
@@ -174,28 +184,28 @@ function selecionarColuna(clSelect, type) {
                 //
                 retirarSelecao(clSelect)
             }
-            if (controleExecucaoColumn != clSelect & controleExecucaoColumn != 'none') {
-                
-                todosTh[controleExecucaoColumn].style.background = 'rgb(235, 235, 235)'
-                inputs[controleExecucaoColumn + (column + 1)].style.background = 'rgb(255, 255, 255)'
-                todosTd[controleExecucaoColumn + (column + 1)].style.background = 'none'
-            }
             if (column == 0) {
                 todosTh[event.target.textContent].style.background = 'rgba(0, 150, 200, 0.3)'
             }
             if (column == 2) {
-                console.log(clSelect + (column - 1))
+                //console.log(clSelect + (column - 1))
                 inputs[clSelect + (column - 1)].style.background = 'rgb(255, 255, 255)'
-                debugger
+                //
                 inputs[clSelect + (column - 1)].focus()
             }
-            console.log(clSelect + (column + 1))
+            //console.log(clSelect + (column + 1))
             inputs[clSelect + (column + 1)].style.background = 'rgba(140, 220, 255, 0.8)'
             todosTd[clSelect + (column + 1)].style.background = 'rgba(0, 60, 140, 0.8)'
         }
     }
     if (type == 'line') {
         for (let line = 0; line < 26; line++) {
+            if (controleExecucaoLine != clSelect & controleExecucaoLine != 'none') {
+                //
+                todosTh[controleExecucaoLine].style.background = 'rgb(235, 235, 235)'
+                inputs[String.fromCharCode(64 + (line + 1)) + controleExecucaoLine].style.background = 'rgb(255, 255, 255)'
+                todosTd[String.fromCharCode(64 + (line + 1)) + controleExecucaoLine].style.background = 'none'
+            }
             if (line == 25) {
                 controleExecucaoLine = clSelect
                 checkFinal = 'line'
@@ -205,22 +215,16 @@ function selecionarColuna(clSelect, type) {
                 retirarSelecao(clSelect)
                 //
             }
-            if (controleExecucaoLine != clSelect & controleExecucaoLine != 'none') {
-                //
-                todosTh[controleExecucaoLine].style.background = 'rgb(235, 235, 235)'
-                inputs[String.fromCharCode(64 + (line + 1)) + controleExecucaoLine].style.background = 'rgb(255, 255, 255)'
-                todosTd[String.fromCharCode(64 + (line + 1)) + controleExecucaoLine].style.background = 'none'
-            }
             if (line == 0) {
                 todosTh[event.target.textContent].style.background = 'rgba(0, 150, 200, 0.3)'
 
             }
             if (line == 2) {
-                console.log(String.fromCharCode(64 + (line - 1)))
+                //console.log(String.fromCharCode(64 + (line - 1)))
                 inputs[String.fromCharCode(64 + (line - 1)) + clSelect].style.background = 'rgb(255, 255, 255)'
                 inputs[String.fromCharCode(64 + (line - 1)) + clSelect].focus()
             }
-            console.log(String.fromCharCode(64 + (line + 1)) + clSelect)
+            //console.log(String.fromCharCode(64 + (line + 1)) + clSelect)
             inputs[String.fromCharCode(64 + (line + 1)) + clSelect].style.background = 'rgba(140, 220, 255, 0.8)'
             todosTd[String.fromCharCode(64 + (line + 1)) + clSelect].style.background = 'rgba(0, 60, 140, 0.8)'
         }
@@ -232,7 +236,7 @@ function retirarSelecao(type) {
     if (checkFinal === 'line') {
         for (let line = 0; line < 26; line++) {
             if (type === String.fromCharCode(65 + line)) {
-                console.log('nothing')
+                //console.log('nothing')
             }
             else {
                 todosTh[controleExecucaoLine].style.background = 'rgb(235, 235, 235)'
@@ -245,7 +249,7 @@ function retirarSelecao(type) {
     if (checkFinal === 'column') {
         for (let column = 0; column < 40; column++) {
             if (type == column + 1) {
-                console.log('nothing')
+                //console.log('nothing')
             }
             else {
                 todosTh[controleExecucaoColumn].style.background = 'rgb(235, 235, 235)'
@@ -256,9 +260,9 @@ function retirarSelecao(type) {
     }
 }
 //
-async function apiExcel() {
-    const returnApiExcel = await fetch('https://api-excel.kauanreinox.repl.co/')
-    console.log(returnApiExcel.json())
-    console.log('rodando lisinho')
-}
-apiExcel()
+fetch('https://api-excel.kauanreinox.repl.co/')
+    .then((res) => res.json())
+    .then(data => {
+        console.log(data[0])
+    })
+    .catch(error => console.log('oi deu erro', error))
